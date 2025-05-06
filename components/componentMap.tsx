@@ -1,5 +1,5 @@
 import React from "react";
-import { AppBar, Toolbar, Typography, Container, Button, Box } from "@mui/material";
+import { AppBar, Toolbar, Typography,  Box } from "@mui/material";
 
 // Header компонент
 export const HeaderComponent = ({ title = "My Site" }) => (

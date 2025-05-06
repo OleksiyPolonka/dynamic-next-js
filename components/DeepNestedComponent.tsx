@@ -10,6 +10,7 @@ import ListItem from "@mui/material/ListItem";
 import Typography from "@mui/material/Typography";
 import Button from "@mui/material/Button";
 import CardContent from "@mui/material/CardContent";
+import { TodoItem } from "@/app/[[...slug]]/page";
 
 const DeepNestedComponent = async () => {
   // Серверний запит
@@ -24,7 +25,7 @@ const DeepNestedComponent = async () => {
             <Paper sx={{ padding: 2, backgroundColor: "#fce4ec" }}>
               <Stack spacing={2} sx={{ backgroundColor: "#ede7f6", padding: 2 }}>
                 <List sx={{ backgroundColor: "#fff3e0" }}>
-                  {todos.map((todo: any) => (
+                  {todos.map((todo: TodoItem) => (
                     <ListItem key={todo.id} divider>
                       <Typography variant="body2">{todo.title}</Typography>
                     </ListItem>

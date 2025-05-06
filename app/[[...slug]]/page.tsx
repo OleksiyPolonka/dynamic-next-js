@@ -51,7 +51,7 @@ const componentMap: Record<string, React.ElementType> = {
 };
 const VOID_ELEMENTS = ["img", "input", "br", "hr", "meta", "area", "base", "col", "embed", "param", "source", "track", "wbr"];
 
-type TodoItem = {
+export type TodoItem = {
   userId: number;
   id: number;
   title: string;
