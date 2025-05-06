@@ -1,0 +1,320 @@
+{
+  "path": "/",
+  "seo": {
+    "title": "Home Page",
+    "description": "Welcome to our store"
+  },
+
+    "layout": [
+      {
+        "mui": "AppBar",
+        "props": {
+          "position": "static",
+          "sx": { "backgroundColor": "white", "color": "black", "boxShadow": "none" }
+        },
+        "children": [
+          {
+            "mui": "Toolbar",
+            "children": [
+              {
+                "mui": "Typography",
+                "props": { "variant": "h6", "sx": { "flexGrow": 1 } },
+                "children": "Giovanni Menswear"
+              },
+              {
+                "mui": "Box",
+                "props": { "sx": { "display": "flex", "gap": 2 } },
+                "children": [
+                  {
+                    "mui": "Link",
+                    "props": {
+                      "href": "/",
+                      "underline": "none",
+                      "color": "inherit",
+                      "sx": { "cursor": "pointer" }
+                    },
+                    "children": "Home"
+                  },
+                  {
+                    "mui": "Link",
+                    "props": {
+                      "href": "/catalog",
+                      "underline": "none",
+                      "color": "inherit",
+                      "sx": { "cursor": "pointer" }
+                    },
+                    "children": "Catalog"
+                  },
+                  {
+                    "mui": "Link",
+                    "props": {
+                      "href": "/about",
+                      "underline": "none",
+                      "color": "inherit",
+                      "sx": { "cursor": "pointer" }
+                    },
+                    "children": "About"
+                  },
+                  {
+                    "mui": "Link",
+                    "props": {
+                      "href": "/blog",
+                      "underline": "none",
+                      "color": "inherit",
+                      "sx": { "cursor": "pointer" }
+                    },
+                    "children": "Blog"
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "mui": "DeepNestedComponent"
+
+      },
+      {
+        "mui": "DeepNestedComponent"
+
+      },
+      {
+        "mui": "DeepNestedComponent"
+
+      },
+      
+      {
+        "mui": "Box",
+        "props": {
+          "sx": {
+            "backgroundImage": "url('/hero.jpg')",
+            "backgroundSize": "cover",
+            "backgroundPosition": "center",
+            "height": "500px",
+            "display": "flex",
+            "flexDirection": "column",
+            "justifyContent": "center",
+            "alignItems": "center",
+            "color": "white",
+            "textAlign": "center"
+          }
+        },
+        "children": [
+          {
+            "mui": "Typography",
+            "props": { "variant": "h2", "component": "h1" },
+            "children": "New Outerwear Collection"
+          },
+          {
+            "mui": "Button",
+            "props": {
+              "variant": "outlined",
+              "color": "inherit",
+              "sx": { "mt": 2, "borderColor": "white", "color": "white" }
+            },
+            "children": "Shop Now"
+          }
+        ]
+      },
+      {
+        "mui": "Grid",
+        "props": { "container": true, "spacing": 2, "sx": { "p": 2 } },
+        "children": [
+          {
+            "mui": "Grid",
+            "props": { "item": true, "xs": 12, "md": 4 },
+            "children": {
+              "mui": "Card",
+              "children": [
+                {
+                  "mui": "CardMedia",
+                  "props": { "component": "img", "height": "200", "image": "/promo1.jpg", "alt": "Promo 1" }
+                },
+                {
+                  "mui": "CardContent",
+                  "children": {
+                    "mui": "Typography",
+                    "props": { "variant": "body2", "color": "text.secondary" },
+                    "children": "Free Shipping and Returns"
+                  }
+                }
+              ]
+            }
+          },
+          {
+            "mui": "Grid",
+            "props": { "item": true, "xs": 12, "md": 4 },
+            "children": {
+              "mui": "Card",
+              "children": [
+                {
+                  "mui": "CardMedia",
+                  "props": { "component": "img", "height": "200", "image": "/promo2.jpg", "alt": "Promo 2" }
+                },
+                {
+                  "mui": "CardContent",
+                  "children": {
+                    "mui": "Typography",
+                    "props": { "variant": "body2", "color": "text.secondary" },
+                    "children": "Secured Payments"
+                  }
+                }
+              ]
+            }
+          },
+          {
+            "mui": "Grid",
+            "props": { "item": true, "xs": 12, "md": 4 },
+            "children": {
+              "mui": "Card",
+              "children": [
+                {
+                  "mui": "CardMedia",
+                  "props": { "component": "img", "height": "200", "image": "/promo3.jpg", "alt": "Promo 3" }
+                },
+                {
+                  "mui": "CardContent",
+                  "children": {
+                    "mui": "Typography",
+                    "props": { "variant": "body2", "color": "text.secondary" },
+                    "children": "Customer Service"
+                  }
+                }
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "mui": "Box",
+        "props": {
+          "sx": {
+            "backgroundImage": "url('/extra1.jpg')",
+            "backgroundSize": "cover",
+            "backgroundPosition": "center",
+            "height": "400px",
+            "mt": 4
+          }
+        }
+      },
+      {
+        "mui": "Box",
+        "props": {
+          "sx": {
+            "backgroundImage": "url('/extra2.jpg')",
+            "backgroundSize": "cover",
+            "backgroundPosition": "center",
+            "height": "400px",
+            "mt": 4
+          }
+        }
+      },
+      {
+        "mui": "Box",
+        "props": {
+          "sx": {
+            "backgroundColor": "#f5f5f5",
+            "p": 4,
+            "mt": 4
+          }
+        },
+        "children": {
+          "mui": "Grid",
+          "props": { "container": true, "spacing": 2 },
+          "children": [
+            {
+              "mui": "Grid",
+              "props": { "item": true, "xs": 12, "md": 4 },
+              "children": [
+                {
+                  "mui": "Typography",
+                  "props": { "variant": "subtitle1", "sx": { "mb": 1 } },
+                  "children": "Menu"
+                },
+                {
+                  "mui": "Typography",
+                  "props": { "variant": "body2" },
+                  "children": "Home"
+                },
+                {
+                  "mui": "Typography",
+                  "props": { "variant": "body2" },
+                  "children": "Catalog"
+                },
+                {
+                  "mui": "Typography",
+                  "props": { "variant": "body2" },
+                  "children": "About"
+                },
+                {
+                  "mui": "Typography",
+                  "props": { "variant": "body2" },
+                  "children": "Blog"
+                }
+              ]
+            },
+            {
+              "mui": "Grid",
+              "props": { "item": true, "xs": 12, "md": 4 },
+              "children": [
+                {
+                  "mui": "Typography",
+                  "props": { "variant": "subtitle1", "sx": { "mb": 1 } },
+                  "children": "Contact"
+                },
+                {
+                  "mui": "Typography",
+                  "props": { "variant": "body2" },
+                  "children": "500 Terry Francine St."
+                },
+                {
+                  "mui": "Typography",
+                  "props": { "variant": "body2" },
+                  "children": "San Francisco, CA 94158"
+                },
+                {
+                  "mui": "Typography",
+                  "props": { "variant": "body2" },
+                  "children": "Email: info@my-domain.com"
+                },
+                {
+                  "mui": "Typography",
+                  "props": { "variant": "body2" },
+                  "children": "Tel: 1-800-000-0000"
+                }
+              ]
+            },
+            {
+              "mui": "Grid",
+              "props": { "item": true, "xs": 12, "md": 4 },
+              "children": [
+                {
+                  "mui": "Typography",
+                  "props": { "variant": "subtitle1", "sx": { "mb": 1 } },
+                  "children": "Info"
+                },
+                {
+                  "mui": "Typography",
+                  "props": { "variant": "body2" },
+                  "children": "Shipping & Returns"
+                },
+                {
+                  "mui": "Typography",
+                  "props": { "variant": "body2" },
+                  "children": "FAQ"
+                },
+                {
+                  "mui": "Typography",
+                  "props": { "variant": "body2", "sx": { "mt": 2, "color": "text.secondary" } },
+                  "children": "©2035 by Giovanni Menswear. Powered by MUI"
+                }
+              ]
+            }
+          ]
+        }
+      }
+    ]
+  }
+  
+  
