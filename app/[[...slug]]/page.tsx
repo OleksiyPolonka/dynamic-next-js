@@ -58,6 +58,35 @@ export type TodoItem = {
   completed: boolean;
 };
 
+type DynamicProps = {
+  url: string;
+  map: ConfigNode;
+};
+
+function isDynamicProps(obj: unknown): obj is { dynamic: DynamicProps } {
+  if (
+    typeof obj === 'object' &&
+    obj !== null &&
+    'dynamic' in obj
+  ) {
+    const dynamic = (obj as Record<string, unknown>).dynamic;
+    if (
+      typeof dynamic === 'object' &&
+      dynamic !== null &&
+      'url' in dynamic &&
+      'map' in dynamic
+    ) {
+      const dyn = dynamic as Record<string, unknown>;
+      return (
+        typeof dyn.url === 'string' &&
+        typeof dyn.map === 'object' &&
+        dyn.map !== null
+      );
+    }
+  }
+  return false;
+}
+
 async function RenderNode({ node }: { node: ConfigNode | string }) {
   if (typeof node === "string") {
     return node;
@@ -76,11 +105,11 @@ async function RenderNode({ node }: { node: ConfigNode | string }) {
 
   // SSR dynamic
   let dynamicChildren = null;
-  if (props.dynamic) {
+  if (isDynamicProps(props)) {
     try {
       const res = await fetch(props.dynamic.url, { cache: "no-store" });
       const data = await res.json();
-
+  
       dynamicChildren = await Promise.all(
         data.map((item: TodoItem, idx: number) => {
           const mappedNode = JSON.parse(
@@ -92,7 +121,7 @@ async function RenderNode({ node }: { node: ConfigNode | string }) {
                 }
                 return '';
               }
-                        )
+            )
           );
           return <RenderNode key={idx} node={mappedNode} />;
         })
@@ -106,14 +135,16 @@ async function RenderNode({ node }: { node: ConfigNode | string }) {
       );
     }
   }
+  
 
   // 🛡 Перевірка на void:
   const isVoid =
     VOID_ELEMENTS.includes(mui.toLowerCase()) ||
-    (typeof props.component === "string" &&
-      VOID_ELEMENTS.includes(props.component.toLowerCase()));
+    ('component' in props &&
+      typeof props.component === "string" &&
+      VOID_ELEMENTS.includes((props.component as string).toLowerCase()));
 
-  if (isVoid) {
+      if (isVoid) {
     return <Component {...props} />;
   }
 
