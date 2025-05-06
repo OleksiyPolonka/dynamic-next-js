@@ -1,8 +1,15 @@
 import home from "./home.json";
 import catalog from "./catalog.json";
+import { generateLargeConfig } from "./largeDemoConfig";
 
 export const configs: Record<string, any> = {
-  [home.path]: home,
+  [home.path]: {
+    ...home,
+    layout: [
+      ...generateLargeConfig(5000),
+      ...home.layout,
+    ]
+  },
   [catalog.path]: catalog,
 };
 

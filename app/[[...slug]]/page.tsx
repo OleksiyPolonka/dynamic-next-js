@@ -92,10 +92,14 @@ async function RenderNode({ node }: { node: ConfigNode | string }) {
     return node;
   }
 
+
   const { mui, props = {}, children } = node;
+  if (mui == undefined)
+  console.log('%capp/[[...slug]]/page.tsx:95 node', 'color: #007acc;', node);
   const Component = componentMap[mui];
 
   if (!Component) {
+    console.log('%capp/[[...slug]]/page.tsx:99 mui', 'color: #007acc;', mui);
     return (
       <div style={{ border: "2px solid red", padding: "10px" }}>
         Unknown MUI component: {mui}
