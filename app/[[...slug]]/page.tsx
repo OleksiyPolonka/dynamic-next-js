@@ -22,7 +22,7 @@ import DeepNestedComponent from "@/components/DeepNestedComponent";
 
 type ConfigNode = {
   mui: string;
-  props?: Record<string, any>;
+  props?: Record<string, unknown>;
   children?: ConfigNode[] | string;
 };
 
@@ -51,6 +51,13 @@ const componentMap: Record<string, React.ElementType> = {
 };
 const VOID_ELEMENTS = ["img", "input", "br", "hr", "meta", "area", "base", "col", "embed", "param", "source", "track", "wbr"];
 
+type TodoItem = {
+  userId: number;
+  id: number;
+  title: string;
+  completed: boolean;
+};
+
 async function RenderNode({ node }: { node: ConfigNode | string }) {
   if (typeof node === "string") {
     return node;
@@ -75,12 +82,17 @@ async function RenderNode({ node }: { node: ConfigNode | string }) {
       const data = await res.json();
 
       dynamicChildren = await Promise.all(
-        data.map((item: any, idx: number) => {
+        data.map((item: TodoItem, idx: number) => {
           const mappedNode = JSON.parse(
             JSON.stringify(props.dynamic.map).replace(
               /\{(\w+)\}/g,
-              (_, key) => item[key] ?? ''
-            )
+              (_, key) => {
+                if (key in item) {
+                  return String(item[key as keyof TodoItem]);
+                }
+                return '';
+              }
+                        )
           );
           return <RenderNode key={idx} node={mappedNode} />;
         })
