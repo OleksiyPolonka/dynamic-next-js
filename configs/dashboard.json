@@ -1,0 +1,7 @@
+{
+  "path": "/dashboard",
+  "protected": true,
+  "main": [
+    { "mui": "Typography", "props": { "variant": "h4" }, "children": "Welcome to your dashboard!" }
+  ]
+}

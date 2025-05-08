@@ -1,0 +1,123 @@
+{
+  "mui": "AppBar",
+  "props": {
+    "position": "static",
+    "sx": { "backgroundColor": "white", "color": "black", "boxShadow": "none", "px": 2 }
+  },
+  "children": [
+    {
+      "mui": "Toolbar",
+      "props": { "sx": { "justifyContent": "space-between" } },
+      "children": [
+        {
+          "mui": "Typography",
+          "props": {
+            "variant": "h6",
+            "sx": {
+              "fontWeight": "bold"
+            }
+          },
+          "children": [
+            { "mui": "span", "props": { "style": { "color": "black" } }, "children": "LI" },
+            { "mui": "span", "props": { "style": { "color": "#3b82f6" } }, "children": "STING" }
+          ]
+        },
+        {
+          "mui": "Box",
+          "props": {
+            "sx": {
+              "display": "flex",
+              "alignItems": "center",
+              "gap": 2,
+              "backgroundColor": "#f5f5f5",
+              "borderRadius": "999px",
+              "px": 2,
+              "py": 0.5
+            }
+          },
+          "children": [
+            {
+              "mui": "NavItem",
+              "props": {
+                "icon": "🎮",
+                "label": "Games",
+                "dropdown": {
+                  "platforms": [
+                    {
+                      "title": "PC",
+                      "link": "category",
+                      "query": "pc",
+                      "count": 1345
+                    },
+                    {
+                      "title": "Home",
+                      "link": "/",
+                      "count": 12954
+                    },
+                    {
+                      "title": "Xbox",
+                      "count": 2344
+                    },
+                    {
+                      "title": "Nintendo",
+                      "count": 123
+                    }
+                  ],
+                  "brands": [
+                    "Steam", "Ubisoft", "Rockstar", "EA", "Bethesda", "GOG"
+                  ]
+                }
+              }
+            },
+            { "mui": "Divider" },
+            {
+              "mui": "NavItem",
+              "props": {
+                "icon": "💻",
+                "label": "Software"
+              }
+            },
+            { "mui": "Divider" },
+            {
+              "mui": "NavItem",
+              "props": {
+                "icon": "💳",
+                "label": "Prepaid Cards"
+              }
+            },
+            { "mui": "Divider" },
+            {
+              "mui": "NavItem",
+              "props": {
+                "icon": "⬇️",
+                "label": "More"
+              }
+            }
+          ]
+        },
+        {
+          "mui": "Box",
+          "props": {
+            "sx": { "display": "flex", "alignItems": "center", "gap": 1 }
+          },
+          "children": [
+            {
+              "mui": "Button",
+              "props": {
+                "variant": "outlined",
+                "startIcon": "🇬🇧"
+              },
+              "children": "ENG"
+            },
+            {
+              "mui": "Avatar",
+              "props": {
+                "src": "https://randomuser.me/api/portraits/men/75.jpg"
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

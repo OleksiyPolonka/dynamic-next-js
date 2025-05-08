@@ -1,0 +1,67 @@
+{
+  "mui": "Box",
+  "props": {
+    "component": "footer",
+    "sx": {
+      "backgroundColor": "grey.900",
+      "color": "white",
+      "py": 4,
+      "mt": "auto"
+    }
+  },
+  "children": [
+    {
+      "mui": "Container",
+      "children": [
+        {
+          "mui": "Typography",
+          "props": {
+            "variant": "body2",
+            "align": "center"
+          },
+          "children": "© 2025 Lugnet Green Bistro. Alla rättigheter förbehållna."
+        },
+        {
+          "mui": "Box",
+          "props": {
+            "sx": {
+              "display": "flex",
+              "justifyContent": "center",
+              "gap": 2,
+              "mt": 1
+            }
+          },
+          "children": [
+            {
+              "mui": "Link",
+              "props": {
+                "href": "/integritetspolicy",
+                "underline": "hover",
+                "color": "inherit"
+              },
+              "children": "Integritetspolicy"
+            },
+            {
+              "mui": "Link",
+              "props": {
+                "href": "/kontakt",
+                "underline": "hover",
+                "color": "inherit"
+              },
+              "children": "Kontakt"
+            },
+            {
+              "mui": "Link",
+              "props": {
+                "href": "/om-oss",
+                "underline": "hover",
+                "color": "inherit"
+              },
+              "children": "Om oss"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

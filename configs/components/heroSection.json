@@ -1,0 +1,45 @@
+{
+  "mui": "Box",
+  "props": {
+    "sx": {
+      "backgroundImage": "url('https://images.unsplash.com/photo-1504674900247-0877df9cc836?auto=format&fit=crop&w=1600&q=80')",
+      "backgroundSize": "cover",
+      "backgroundPosition": "center",
+      "py": 10,
+      "color": "white",
+      "textAlign": "center"
+    }
+  },
+  "children": [
+    {
+      "mui": "Container",
+      "children": [
+        {
+          "mui": "Typography",
+          "props": {
+            "variant": "h2",
+            "sx": { "fontWeight": "bold", "mb": 2 }
+          },
+          "children": "Welcome to Lugnet Green Bistro"
+        },
+        {
+          "mui": "Typography",
+          "props": {
+            "variant": "h5",
+            "sx": { "mb": 4 }
+          },
+          "children": "Healthy, delicious, and sustainable meals for every moment."
+        },
+        {
+          "mui": "Button",
+          "props": {
+            "variant": "contained",
+            "color": "primary",
+            "href": "/menu"
+          },
+          "children": "View Our Menu"
+        }
+      ]
+    }
+  ]
+}

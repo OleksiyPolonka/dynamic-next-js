@@ -3,20 +3,48 @@ const fs = require('fs');
 const path = require('path');
 
 // 1. Загружаем исходные данные
-const home = require('./home.json');
-const catalog = require('./catalog.json');
+// const home = require('./home.json');
+// const catalog = require('./catalog.json');
 // const { generateLargeConfig } = require('./largeDemoConfig');
 
-// 2. Генерируем полный конфиг
+const home = require("./home.json");
+const login = require("./login.json");
+const catalog = require("./catalog.json");
+const dashboard = require("./dashboard.json");
+const headerConfig = require('./components/header.json');
+const footerConfig = require('./components/footer.json'); 
+const heroSection = require('./components/heroSection.json'); 
+
 const fullConfig = {
   [home.path]: {
     ...home,
-    layout: [
-      // ...generateLargeConfig(5000),
+    main: [
       ...home.layout,
+      { ...heroSection },
+    ],
+    layout: [
+      { ...headerConfig },
+      { ...footerConfig },
     ]
   },
-  [catalog.path]: catalog,
+  [catalog.path]: {
+    main: [
+      ...home.layout,
+    ],
+    layout: [
+      { ...headerConfig },
+      { ...footerConfig },
+    ]
+  },
+  [dashboard.path]: {
+    ...dashboard
+  },
+  "/login": {
+    main: login.main
+  },
+  "/category": {
+    main: []
+  }
 };
 
 // 3. Определяем путь для сохранения

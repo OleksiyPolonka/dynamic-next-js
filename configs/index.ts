@@ -1,16 +1,41 @@
 import home from "./home.json";
+import login from "./login.json";
 import catalog from "./catalog.json";
-import { generateLargeConfig } from "./largeDemoConfig";
+import dashboard from "./dashboard.json";
+import headerConfig from './components/header.json';
+import footerConfig from './components/footer.json'; 
+import heroSection from './components/heroSection.json'; 
 
-export const configs: Record<string, any> = {
+export const config: Record<string, any> = {
   [home.path]: {
     ...home,
-    layout: [
-      ...generateLargeConfig(5000),
+    main: [
       ...home.layout,
+      { ...heroSection },
+    ],
+    layout: [
+      { ...headerConfig },
+      { ...footerConfig },
     ]
   },
-  [catalog.path]: catalog,
+  [catalog.path]: {
+    main: [
+      ...home.layout,
+    ],
+    layout: [
+      { ...headerConfig },
+      { ...footerConfig },
+    ]
+  },
+  [dashboard.path]: {
+    ...dashboard
+  },
+  "/login": {
+    main: login.main
+  },
+  "/category": {
+    main: []
+  }
 };
 
 // {
