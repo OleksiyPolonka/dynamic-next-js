@@ -5,7 +5,7 @@ import { MuiProviders } from "./providers/MuiProvider";
 import { Params } from "./[[...slug]]/page";
 import { config } from "../configs";
 import { Layout } from "./context/LayoutContext";
-import { ClerkProvider } from "@clerk/nextjs";
+// import { ClerkProvider } from "@clerk/nextjs";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -40,13 +40,13 @@ export default async function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
-        <ClerkProvider>
+        {/* <ClerkProvider> */}
           <Layout initialConfig={pageConfig}>
             <MuiProviders>
               {children}
             </MuiProviders>
             </Layout>
-        </ClerkProvider>
+        {/* </ClerkProvider> */}
       </body>
     </html>
   );
