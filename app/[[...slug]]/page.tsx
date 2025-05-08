@@ -175,20 +175,6 @@ async function RenderNode({ node }: { node: ConfigNode | string }) {
 }
 
 
-export async function generateStaticParams() {
-  try {
-    const response = await fetch('https://api.myjson.online/v1/records/438bb988-189d-4d16-b45a-470dbcac27ec');
-    const { data } = await response.json();
-    
-    return Object.keys(data).map(slug => ({
-      slug: slug === '/' ? [] : [slug.replace(/^\//, '')]
-    }));
-  } catch (error) {
-    console.error('Error generating static params:', error);
-    return [{ slug: [] }];
-  }
-}
-
 export default async function Page({ params }: {
   params: Params;
 }) {
