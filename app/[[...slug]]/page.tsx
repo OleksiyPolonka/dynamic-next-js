@@ -8,7 +8,7 @@ import Card from "@mui/material/Card";
 import CardContent from "@mui/material/CardContent";
 import CardMedia from "@mui/material/CardMedia";
 import { notFound } from "next/navigation";
-import { configs } from "../../configs"; // 👈 наша новая мапа
+// import { configs } from "../../configs"; // 👈 наша новая мапа
 import AppBar from "@mui/material/AppBar";
 import Toolbar from "@mui/material/Toolbar"; // если используется
 import Paper from "@mui/material/Paper"; // если используется
@@ -18,6 +18,8 @@ import ListItem from "@mui/material/ListItem"; // если использует�
 
 import Link from "next/link";
 import DeepNestedComponent from "@/components/DeepNestedComponent";
+// import { fetchAllConfigs } from "@/lib/api";
+// import { fetchAllConfigs } from "@/lib/api";
 
 
 type ConfigNode = {
@@ -28,6 +30,7 @@ type ConfigNode = {
 
 export type Params = Promise<{
   slug: string[];
+  // config?: PageConfig;
 }>;
 
 
@@ -172,13 +175,29 @@ async function RenderNode({ node }: { node: ConfigNode | string }) {
 }
 
 
+export async function generateStaticParams() {
+  try {
+    const response = await fetch('https://api.myjson.online/v1/records/438bb988-189d-4d16-b45a-470dbcac27ec');
+    const { data } = await response.json();
+    
+    return Object.keys(data).map(slug => ({
+      slug: slug === '/' ? [] : [slug.replace(/^\//, '')]
+    }));
+  } catch (error) {
+    console.error('Error generating static params:', error);
+    return [{ slug: [] }];
+  }
+}
 
 export default async function Page({ params }: {
   params: Params;
 }) {
   const {slug = []} = await params;
 
-  const config = configs[slug[0] ?? '/'];
+  const response = await fetch(`https://api.myjson.online/v1/records/438bb988-189d-4d16-b45a-470dbcac27ec`);
+  const { data } = await response.json();
+
+  const config = data[slug[0] ?? '/'];
 
   if (!config) {
     return notFound();
